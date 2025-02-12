@@ -1,10 +1,20 @@
-body{
-    background-color: rgb(184, 227, 195);
+:root{
+    --myred: rgb(248, 107, 107);
+    --myblue: rgb(115, 140, 241);
+    --fullwidth: 100%;
+    --lightblue: rgb(198, 206, 240);
+    --gridtype: grid;
+    --quartercolums: 25% 25% 25% 25%;
 }
+
+body{
+    background-color: var(--lightblue);
+}
+
 #grid-container{
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    width: 100%;
+    display: var(--gridtype);
+    grid-template-columns: var(--quartercolums);
+    width: var(--fullwidth);
     height: 70%;
     background-color: rgb(135, 140, 145);
     border: 2px solid black;
@@ -17,6 +27,14 @@ body{
 }
 .grid-element:hover{
     background-color: rgb(218, 227, 227);
+}
+
+.red-box:hover{
+    background-color: var(--myred);
+}
+
+.yellow-box:hover{
+    background-color: rgb(234, 234, 85);
 }
 
 @media (max-width: 1000px){
@@ -32,7 +50,7 @@ body{
 @media (max-width: 650px){
     #grid-container{
         grid-template-columns: 100%;
-        height: 175%;
+        height: fit-content;
     }
     .grid-element{
         font-size: 24px;
@@ -42,16 +60,30 @@ body{
 @media (max-height: 500px){
     .grid-element{
         font-size: 12px;
+        height: fit-content;
+
     }
 }
 
 @media (display-mode: fullscreen){
     #grid-container{
-        background-color: rgb(210, 110, 110);
+        background-color: var(--myred);
         height: 100%;
     }
     .grid-element{
         font-size: 24px;
+    }
+}
+
+@media (orientation: portrait){
+    #grid-container{
+        background-color: rgb(135, 140, 145);
+    }
+}
+
+@media (orientation: landscape){
+    #grid-container{
+        background-color: rgb(157, 187, 169);
     }
 }
 
